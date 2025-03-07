@@ -21,7 +21,6 @@ const UserDetails: React.FC = () => {
       try {
         const fetchedUser: User = await apiService.get<User>(`/users/${id}`);
         setUser(fetchedUser);
-        setBirthday(fetchedUser.birthday || null);
       } catch (_error) {
         if (_error instanceof Error) {
           alert(`Error fetching user details:\n${_error.message}`);
