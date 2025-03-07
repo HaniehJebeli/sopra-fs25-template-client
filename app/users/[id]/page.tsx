@@ -23,8 +23,11 @@ const UserDetails: React.FC = () => {
         setUser(fetchedUser);
         setBirthday(fetchedUser.birthday || null);
       } catch (_error) {
-        alert("Error fetching user details.");
-        router.push("/users");
+        if (_error instanceof Error) {
+          alert(`Error fetching user details:\n${_error.message}`);
+        } else {
+          console.error("An unknown error occurred during login.");
+        }
       } finally {
         setLoading(false);
       }
@@ -47,7 +50,11 @@ const UserDetails: React.FC = () => {
         
       message.success("Birthday updated successfully!");
     } catch (_error) {
-      message.error("Failed to update birthday.");
+      if (_error instanceof Error) {
+        alert(`Failed to update birthday.:\n${_error.message}`);
+      } else {
+        console.error("An unknown error occurred during login.");
+      }
     } finally {
       setSaving(false);
     }
