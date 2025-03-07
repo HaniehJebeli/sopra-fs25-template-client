@@ -22,7 +22,7 @@ const UserDetails: React.FC = () => {
         const fetchedUser: User = await apiService.get<User>(`/users/${id}`);
         setUser(fetchedUser);
         setBirthday(fetchedUser.birthday || null);
-      } catch (error) {
+      } catch (_error) {
         alert("Error fetching user details.");
         router.push("/users");
       } finally {
@@ -46,7 +46,7 @@ const UserDetails: React.FC = () => {
       
         
       message.success("Birthday updated successfully!");
-    } catch (error) {
+    } catch (_error) {
       message.error("Failed to update birthday.");
     } finally {
       setSaving(false);

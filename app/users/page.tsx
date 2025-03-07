@@ -55,9 +55,9 @@ const Dashboard: React.FC = () => {
         const users: User[] = await apiService.get<User[]>("/users");
         setUsers(users);
         console.log("Fetched users:", users);
-      } catch (error) {
-        if (error instanceof Error) {
-          alert(`Something went wrong while fetching users:\n${error.message}`);
+      } catch (_error) {
+        if (_error instanceof Error) {
+          alert(`Something went wrong while fetching users:\n${_error.message}`);
         } else {
           console.error("An unknown error occurred while fetching users.");
         }
