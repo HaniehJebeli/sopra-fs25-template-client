@@ -73,7 +73,6 @@ const UserDetails: React.FC = () => {
               <p><strong>ID:</strong> {user.id}</p>
               <p><strong>Username:</strong> {user.username}</p>
               <p><strong>Name:</strong> {user.name}</p>
-              <p><strong>Created Date:</strong> {user.createdDate}</p>
               <p><strong>Birthday:</strong></p>
               <DatePicker 
                 value={birthday ? dayjs(birthday) : null} 
